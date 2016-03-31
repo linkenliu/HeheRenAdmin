@@ -1,0 +1,139 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%@include file="./header.jsp"%>
+<title>帖子列表</title>
+</head>
+<body>
+	<!-- topbar starts -->
+	<%@include file="./topbar.jsp"%>
+	<!-- topbar ends -->
+	<div class="container-fluid">
+		<div class="row-fluid">
+
+			<!-- left menu starts -->
+			<%@include file="./leftmenu.jsp"%>
+			<!-- left menu ends -->
+		</div>
+		<div class="box col-sm-10 col-lg-10">
+			<div class="box-inner">
+				
+				<div class="box-header well" data-original-title="">
+					<h2>
+						<i class="glyphicon glyphicon-user"></i>新增帖子
+					</h2>
+
+					<div class="box-icon">
+						<a href="#" class="btn btn-minimize btn-round btn-default"><i
+							class="glyphicon glyphicon-chevron-up"></i></a> <a href="#"
+							class="btn btn-close btn-round btn-default"><i
+							class="glyphicon glyphicon-remove"></i></a>
+					</div>
+				</div>
+				<div class="box-content">
+							<s:form action="activityManage_add" namespace="/activityManage" method="post" cssClass="form-horizontal" theme="simple"
+								    onsubmit="return validator(this);" id="postForm" name="postForm">
+									
+								<div class="alert">
+								  <button type="button" class="close" data-dismiss="alert">&times;</button>
+								  <strong>温馨提示：</strong>原图：尺寸不限大小小于500KB /  展示图：612*612 大小小于100KB
+								</div>	
+									
+								 <div class="control-group">
+									<label class="control-label" for="optionsCheckbox2">类型:</label>
+									<div class="controls">
+										<label class="radio">
+											<input  type="radio" name="activityPds.isAwardList" onclick="changeIsAwardList1()" id="isAwardList0" value="0" checked="checked"> 活动
+								  			&nbsp;&nbsp;&nbsp;&nbsp;
+										</label>
+										<label class="radio">
+											<input  type="radio" name="activityPds.isAwardList" onclick="changeIsAwardList1()" id="isAwardList1" value="1"> 获奖名单
+								  			&nbsp;&nbsp;&nbsp;&nbsp;
+										</label>
+									</div>
+								</div>	 
+									
+								 <div class="control-group">
+									<label class="control-label" for="focusedInput">活动开始时间：</label>
+									<div class="controls">
+										<s:textfield cssClass="laydate-icon"  name="activityPds.activityStartDate"
+											id="activityStartDate" valid="required" errmsg="活动开始时间不能为空!"
+											onclick="laydate({istime: true,	format: 'YYYY-MM-DD hh:mm:ss'})"
+											/>
+										<span class="help-inline" style="color: #bd4247;"
+											id="errMsg_activityPds.activityStartDate"></span> 活动结束时间:
+										<s:textfield cssClass="laydate-icon" name="activityPds.activityEndDate"
+											id="activityEndDate"  valid="required" errmsg="活动结束时间不能为空!"
+											onclick="laydate({istime: true,	format: 'YYYY-MM-DD hh:mm:ss'})"
+											 />
+										<span class="help-inline" style="color: #bd4247;"
+											id="errMsg_activityPds.activityEndDate"></span>
+									</div>
+								</div> 
+								<div class="control-group">
+									<label class="control-label" for="focusedInput">内容：</label>
+									<div class="controls">
+										<s:textfield cssClass="span6" name="activityPds.activitySummary"
+										 id="activitySummary" valid="required" errmsg="活动内容不能为空!" />
+										 <span class="help-inline" style="color: #bd4247;" id="errMsg_activityPds.activitySummary"></span> 
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="focusedInput">标题：</label>
+									<div class="controls">
+										<s:textfield cssClass="span6" name="activityPds.activityTitle"
+											id="activityTitle" valid="required" errmsg="活动标题不能为空!" />
+										<span class="help-inline" style="color: #bd4247;" id="errMsg_activityPds.activityTitle"></span> 
+									</div>
+								</div>
+								
+								 <div class="control-group">
+									<label class="control-label" for="focusedInput">上传图片：</label>
+											<div class="controls">
+												<iframe src="<%=basePath%>activityManage/activityManage_uploadUi.action?picType=bigPic" frameborder="0" width="30%" height="70"></iframe>
+												<s:hidden name="activityPds.activityPic" id="pictureFanGroup"/>  
+												<s:hidden name="fileStr" id="fileStr" />  
+												<ul class="thumbnails gallery" id="gallery" > </ul>	
+											</div>									
+										</div>
+
+								<div class="control-group">
+									<label class="control-label" for="focusedInput">活动详情：</label>
+									<div class="controls">
+										<s:textarea cssClass="span6" name="activityPds.activityDesc"
+											id="postDescription" valid="required" errmsg="活动详情不能为空!" />
+										<span class="help-inline" style="color: #bd4247;" id="errMsg_activityPds.activityDesc"></span> 
+									</div>
+								</div>
+								 <div class="control-group">
+									<label class="control-label" for="focusedInput">发布状态: </label>
+									<div class="controls">
+											<input type="checkbox" name="activityPds.flagState" id="flagState" onclick="checkPublish(0);" value="0" checked> 发布
+									 		<input type="checkbox" name="activityPds.flagState" id="isTimedRelease" onclick="checkPublishTimedRelease();" errmsg="定时发布时间不能为空！" value="1" >
+											 定时发布
+											&nbsp;&nbsp;&nbsp;&nbsp;
+											将于：
+											 发布
+											<span class="help-inline" style="color: #bd4247;" id="errMsg_activityPds.releaseDate"></span> 
+									</div>
+								</div> 
+								<div class="form-actions">
+									<button type="submit" class="btn btn-primary" id="btn">保存</button>
+									<button type="reset" class="btn"
+										onclick="javascript:location.href='<%=request.getContextPath()%>/activityManage/activityManage_list.action'">取消</button>
+								</div>
+
+							</s:form>
+						</div>
+					</div>
+			</div>
+		</div>
+		<!--/span-->
+
+	</div>
+	<!--/row-->
+	<%@include file="./footer.jsp"%>
+</body>
+</html>

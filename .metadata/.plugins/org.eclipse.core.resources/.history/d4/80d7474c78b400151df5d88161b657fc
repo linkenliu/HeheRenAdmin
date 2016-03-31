@@ -1,0 +1,7 @@
+package com.heheren.dao.impl;
+
+import com.heheren.model.Post;
+
+public class DictionarieDaoImpl  extends BaseDaoImpl<Dictionarie> implements DictionarieDao{
+	
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.heheren.model.Dictionarie" >
+	
+  <resultMap id="ResultMap" type="com.heheren.model.Dictionarie">
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="secondary_name" property="secondaryName" jdbcType="VARCHAR" />
+    <result column="secondary_id" property="secondaryId" jdbcType="INTEGER" />
+  </resultMap>  
+  
+  <select id="list" resultMap="ResultMap" parameterType="map">
+	select id,name from dictionarie where secondary_id = 0
+  </select>
+  
+  <select id="find" resultMap="ResultMap" parameterType="Integer">
+  	select id,secondary_name from dictionarie where secondary_id = #{id,jdbcType=INTEGER}
+  </select>
+  
+</mapper>
+

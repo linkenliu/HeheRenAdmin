@@ -1,0 +1,16 @@
+package com.heheren.test;
+
+import com.qiniu.api.auth.digest.Mac;
+import com.qiniu.api.config.Config;
+import com.qiniu.api.rs.PutPolicy;
+
+public class QiniuTest {
+
+	public static void main(String[] args) {
+		
+	}
+	
+	public String a (){
+		
+	}
+}

@@ -1,0 +1,5 @@
+package com.heheren.dao.impl;
+
+public class BaseDaoImpl {
+
+}

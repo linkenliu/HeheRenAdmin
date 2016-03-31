@@ -1,0 +1,13 @@
+package com.heheren.model;
+
+public class Post {
+	private int id;
+	
+	private String name;
+	
+	private String picture;
+	
+	private String details;
+	
+	private Date create_date
+}

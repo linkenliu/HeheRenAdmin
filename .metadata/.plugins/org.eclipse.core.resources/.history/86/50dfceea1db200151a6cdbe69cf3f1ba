@@ -1,0 +1,11 @@
+package com.heheren.service.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import com.heheren.model.Post;
+
+public interface PostService {
+	public List<Post> queryUser(Map<String, Object> map) throws Exception;
+	
+}

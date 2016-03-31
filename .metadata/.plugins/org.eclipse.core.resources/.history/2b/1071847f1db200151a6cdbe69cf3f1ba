@@ -1,0 +1,17 @@
+package com.heheren.dao.impl;
+
+import com.heheren.config.QiNiu;
+import com.heheren.dao.BaseDao;
+
+public class BaseDaoImpl implements BaseDao{
+	
+	/**
+	 * ªÒ»°∆ﬂ≈£token
+	 */
+	@Override
+	public String getQiNiuToken(QiNiu qiniu) {
+		
+		return null;
+	}
+
+}

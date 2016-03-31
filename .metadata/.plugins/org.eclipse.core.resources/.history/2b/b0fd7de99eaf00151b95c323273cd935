@@ -1,0 +1,9 @@
+package com.heheren.service;
+
+import java.util.List;
+import java.util.Map;
+
+import com.heheren.model.Post;
+
+public class PostServiceImpl implements com.heheren.service.impl.PostServiceImpl{
+}

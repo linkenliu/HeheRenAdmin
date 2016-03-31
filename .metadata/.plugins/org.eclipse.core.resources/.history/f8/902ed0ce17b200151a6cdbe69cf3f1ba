@@ -1,0 +1,12 @@
+package com.heheren.test;
+
+import com.qiniu.api.auth.digest.Mac;
+
+public class QiniuTest {
+
+	public static void main(String[] args) {
+		Mac mac = new Mac("DCqIYmhHuIgLdfUWpcn4Lzo-1QZ1juBALUTFVTkb", "Bp7Io4kyOOmN9HEiFJ8GNhKfcUk9fV6IDywtEuC0");
+		
+	}
+	
+}

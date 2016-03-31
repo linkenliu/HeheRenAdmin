@@ -1,0 +1,74 @@
+package com.heheren.service.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Service;
+
+import com.heheren.service.BaseService;
+import com.heheren.utils.QiNiu;
+
+@Service
+public class BaseServiceImpl<T> implements BaseService<T>{
+
+	@Override
+	public String getQiNiuToken(QiNiu qiniu) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void add(T obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(T obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Class<T> clz, Map<String, Object> params) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public T load(Class<T> clz, int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public T load(Class<T> clz, long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public T loadBySqlId(String sqlId, Map<String, Object> params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public T loadBySqlId(String sqlId, Object obj) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<T> list(Class<T> clz, Map<String, Object> params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int findCount(Class<T> clz, Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}

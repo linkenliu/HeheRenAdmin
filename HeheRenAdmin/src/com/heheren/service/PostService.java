@@ -1,0 +1,17 @@
+package com.heheren.service;
+
+import java.util.List;
+import java.util.Map;
+
+import com.heheren.model.Post;
+import com.heheren.utils.QiNiu;
+
+public interface PostService {
+	public String getQiNiuToken(QiNiu qiniu);
+	public List<Post> list(Class<Post> clz, Map<String, Object> params);
+	public void add(Post post);
+	public Post load(Class<Post> clz,int id);
+	public void update(Post post);
+	public void delete(Class<Post> clz,Map<String, Object> params);
+	public void deleteQiniuImage(QiNiu qiniu);
+}

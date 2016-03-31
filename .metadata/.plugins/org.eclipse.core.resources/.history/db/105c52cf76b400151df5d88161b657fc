@@ -1,0 +1,11 @@
+package com.heheren.model;
+
+public class Dictionarie {
+	private int id;
+	private String name;
+	private String nameNode;
+	private int secondaryId;
+	private String secondaryName;
+	private String secondaryNameNode;
+	private Date create_date
+}

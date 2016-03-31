@@ -1,0 +1,7 @@
+package com.heheren.dao;
+
+import com.heheren.config.QiNiu;
+
+public interface BaseDao {
+	public String getQiNiuToken(QiNiu qiniu);
+}

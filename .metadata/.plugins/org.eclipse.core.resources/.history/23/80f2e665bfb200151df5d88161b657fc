@@ -1,0 +1,42 @@
+package com.heheren.dao.impl;
+
+import java.awt.List;
+import java.util.Map;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.heheren.dao.BaseDao;
+import com.heheren.utils.QiNiu;
+import com.qiniu.util.Auth;
+
+public class BaseDaoImpl<T> implements BaseDao<T>{
+	
+	@Autowired
+	public SqlSessionTemplate sqlSessionTemplate;
+	
+	/**
+	 * ªÒ»°∆ﬂ≈£token
+	 */
+	@SuppressWarnings("static-access")
+	@Override
+	public String getQiNiuToken(QiNiu qiniu) {
+		Auth auth = Auth.create(qiniu.ACCESS_KEY, qiniu.SECRET_KEY);
+		String token = auth.uploadToken(qiniu.BUCKET);
+		return token;
+	}
+
+
+	@Override
+	public void add(T obj) {
+		
+	}
+
+
+	@Override
+	public List list(Class<T> clz, Map<String, Object> params) {
+		
+		return this.list(clz.getName(), params);
+	}
+
+}

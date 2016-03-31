@@ -1,0 +1,8 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<hr>
+<p class="pull-left">&copy; <%= new SimpleDateFormat("yyyy").format(Calendar.getInstance().getTime()) %> 上海罗馥缇电子商务有限公司</p>
+<p class="pull-left">&nbsp;&nbsp;电话： 021-32568315</p>
+<p class="pull-right">
+	Powered by: <a href="http://www.handouer.cn" target="_blank">Shanghai Lofti E-commerce, CO., LD</a>
+</p>

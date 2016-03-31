@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+	<!-- 开启命名空间 -->
+ 	<settings useStatementNamespaces="true" />
+  <!-- 定义映射文件 -->
+  	<sqlMap resource="com/cshr/mapper/charge_ls.xml"/>
+  	
+  	<sqlMap resource="com/cshr/mapper/ChargePy_Pay_lb.xml"/>
+  	<sqlMap resource="com/cshr/mapper/ChargePy_Bill_gsq.xml"/>
+  	<sqlMap resource="com/cshr/mapper/Charge_xl.xml"/>
+</sqlMapConfig>

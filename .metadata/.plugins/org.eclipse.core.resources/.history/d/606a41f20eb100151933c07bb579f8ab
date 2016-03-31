@@ -1,0 +1,28 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+	String path4LeftMenu = request.getContextPath();
+%>
+<div class="col-sm-2 col-lg-2">
+	<div class="sidebar-nav">
+		<div class="">
+			<div class="nav-sm nav nav-stacked"></div>
+			<ul class="nav nav-pills nav-stacked main-menu">
+				<li><a href="#"
+					class="nav-header hidden-tablet">主菜单</a></li>
+				<li style=""><a class="ajax-link" href="queryPostList"><i
+						class="icon-th-list"></i>帖子列表</a></li>
+				<li style=""><a class="ajax-link" href="queryPostList"><i
+						class="icon-th-list"></i>帖子列表</a></li>
+				<li style=""><a class="ajax-link" href="queryPostList"><i
+						class="icon-th-list"></i>帖子列表</a></li>
+				<li style=""><a class="ajax-link" href="queryPostList"><i
+						class="icon-th-list"></i>帖子列表</a></li>
+
+			</ul>
+		</div>
+	</div>
+	<!--/.well -->
+</div>
+<!--/span-->
+

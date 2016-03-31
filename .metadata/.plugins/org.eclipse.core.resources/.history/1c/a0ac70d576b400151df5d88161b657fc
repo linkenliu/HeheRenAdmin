@@ -1,0 +1,15 @@
+package com.heheren.model;
+
+import java.util.Date;
+
+public class Dictionarie {
+	private int id;
+	private String name;
+	private String nameNode;
+	private int secondaryId;
+	private String secondaryName;
+	private String secondaryNameNode;
+	private Date createDate;
+	private Date updateDate;
+	
+}

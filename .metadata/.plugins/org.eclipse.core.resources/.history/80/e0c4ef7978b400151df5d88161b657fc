@@ -1,0 +1,18 @@
+package com.heheren.service.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import com.heheren.dao.DictionarieDao;
+import com.heheren.model.Dictionarie;
+
+public class DictionarieServiceImpl  extends BaseDaoImpl<Dictionarie> implements DictionarieDao{
+
+	@Override
+	public List<Dictionarie> list(Class<Dictionarie> clz,
+			Map<String, Object> params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

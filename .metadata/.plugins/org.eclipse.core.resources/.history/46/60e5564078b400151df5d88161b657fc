@@ -1,0 +1,11 @@
+package com.heheren.dao.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import com.heheren.dao.PostDao;
+import com.heheren.model.Dictionarie;
+import com.heheren.model.Post;
+
+public class DictionarieDaoImpl  extends BaseDaoImpl<Post> implements PostDao{
+}

@@ -1,0 +1,21 @@
+package com.heheren.service.impl;
+
+
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.heheren.model.Dictionarie;
+import com.heheren.model.Post;
+@Service
+public class DictionarieServiceImpl extends BaseServiceImpl<Dictionarie> implements com.heheren.service.DictionarieService{
+
+	@Override
+	public List<Dictionarie> find(Class<Dictionarie> clz, int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

@@ -1,0 +1,5 @@
+package com.heheren.config;
+
+public class QiuNiu {
+	public static final String bucket = "heheren";
+}

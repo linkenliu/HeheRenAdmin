@@ -1,0 +1,109 @@
+package com.heheren.utils;
+
+import java.io.IOException;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+
+public class JsonConversion {
+	/**
+	 * 鏃ュ織.
+	 */
+	private static Logger logger = Logger.getLogger(JsonConversion.class);
+	private static final String SIMPLE_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+	
+	/**
+	 * java瀵硅薄杞崲鎴恓son瀛楃涓�
+	 * @param obj
+	 */
+	public static final String writeEntityJSON(Object obj) {
+		
+		StringWriter stringWriter = new StringWriter();
+
+		ObjectMappingCustomer mapper = new ObjectMappingCustomer();
+		mapper.setDateFormat(new SimpleDateFormat(SIMPLE_DATE_FORMAT));
+		try {
+			mapper.writeValue(stringWriter, obj);
+		} catch (JsonGenerationException e) {
+			logger.debug(e.getMessage(), e);
+		} catch (JsonMappingException e) {
+			logger.debug(e.getMessage(), e);
+		} catch (IOException e) {
+			logger.debug(e.getMessage(), e);
+		}
+		
+		return stringWriter.toString();  
+	}
+	
+	/**
+	 * List闆嗗悎杞琂SON瀛楃涓�
+	 * @param list
+	 * @return
+	 */	
+	public static final String writeListJSON(List<?> list) {
+		
+		StringWriter stringWriter = new StringWriter();    
+		try {
+			ObjectMappingCustomer mapper = new ObjectMappingCustomer(); 
+			mapper.setDateFormat(new SimpleDateFormat(SIMPLE_DATE_FORMAT));
+			mapper.writeValue(stringWriter,list);
+		} catch (JsonGenerationException e) {
+			logger.debug(e.getMessage(), e);
+		} catch (JsonMappingException e) {
+			logger.debug(e.getMessage(), e);
+		} catch (IOException e) {
+			logger.debug(e.getMessage(), e);
+		}     
+		return stringWriter.toString();  
+	    
+	}
+	/**
+	 * Map闆嗗悎杞崲鎴怞son瀛楃涓�
+	 * @param map
+	 * @return
+	 */
+	public static final String writeMapJSON(Map<?, ?> map) {
+		StringWriter stringWriter = new StringWriter();    
+		try {
+			ObjectMappingCustomer mapper = new ObjectMappingCustomer();   
+			mapper.setDateFormat(new SimpleDateFormat(SIMPLE_DATE_FORMAT));
+			mapper.writeValue(stringWriter,map);
+		} catch (JsonGenerationException e) {
+			logger.debug(e.getMessage(), e);
+		} catch (JsonMappingException e) {
+			logger.debug(e.getMessage(), e);
+		} catch (IOException e) {
+			logger.debug(e.getMessage(), e);
+		}     
+		return stringWriter.toString();  
+	}
+	
+	/**
+	 * 浣跨敤Servlet鐨勮緭鍑簀ava瀵硅薄杞崲鎴愮殑json瀛楃涓�
+	 * @param json
+	 * @throws IOException
+	 */
+	public static final void writeEntityJSONToHttpServletResponse(Object obj) throws IOException{
+		HttpServletResponse response=ServletActionContext.getResponse();
+		/*
+		 * 鍦ㄨ皟鐢╣etWriter涔嬪墠鏈缃紪鐮�鏃㈣皟鐢╯etContentType鎴栬�setCharacterEncoding鏂规硶璁剧疆缂栫爜),
+		 * HttpServletResponse鍒欎細杩斿洖涓�釜鐢ㄩ粯璁ょ殑缂栫爜(鏃SO-8859-1)缂栫爜鐨凱rintWriter瀹炰緥銆傝繖鏍峰氨浼�
+		 * 閫犳垚涓枃涔辩爜銆傝�涓旇缃紪鐮佹椂蹇呴』鍦ㄨ皟鐢╣etWriter涔嬪墠璁剧疆,涓嶇劧鏄棤鏁堢殑銆�
+		 * */
+		response.setContentType("text/html;charset=utf-8");
+		//response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		//JSON鍦ㄤ紶閫掕繃绋嬩腑鏄櫘閫氬瓧绗︿覆褰㈠紡浼犻�
+		out.println(writeEntityJSON(obj));
+		out.flush();
+		out.close();
+	}
+}

@@ -1,0 +1,19 @@
+package com.heheren.dao.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Repository;
+
+import com.heheren.dao.PostDao;
+import com.heheren.model.Post;
+@Repository
+public class PostDaoImpl extends BaseDaoImpl<Post> implements PostDao{
+
+	//得到ibatis里的操作对象SqlMapClient
+	/*@Override
+	public List<Post> queryUser(Map<String, Object> map) throws Exception {
+		return sqlSessionTemplate.selectList("aa.queryPost",map);
+	}*/
+	
+}

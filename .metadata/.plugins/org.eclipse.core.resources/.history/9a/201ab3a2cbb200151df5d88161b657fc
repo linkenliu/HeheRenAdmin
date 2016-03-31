@@ -1,0 +1,85 @@
+package com.heheren.dao.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.heheren.dao.BaseDao;
+import com.heheren.utils.QiNiu;
+import com.qiniu.util.Auth;
+@Repository
+public class BaseDaoImpl<T> implements BaseDao<T>{
+	private static final String DOT = ".";
+	private static final String LIST = "list";
+	private static final String ADD = "add";
+	private static final String LOAD = "load";
+	@Autowired
+	public SqlSessionTemplate sqlSessionTemplate;
+	
+	/**
+	 * ªÒ»°∆ﬂ≈£token
+	 */
+	@SuppressWarnings("static-access")
+	@Override
+	public String getQiNiuToken(QiNiu qiniu) {
+		Auth auth = Auth.create(qiniu.ACCESS_KEY, qiniu.SECRET_KEY);
+		String token = auth.uploadToken(qiniu.BUCKET);
+		return token;
+	}
+
+	@Override
+	public void add(T obj) {
+		sqlSessionTemplate.insert(obj.getClass().getName()+DOT+ADD,obj);
+	}
+
+	@Override
+	public void update(T obj) {
+		sqlSessionTemplate.update(obj.getClass().getName()+DOT+UPDATE, parameter)
+	}
+
+	@Override
+	public void delete(Class<T> clz, Map<String, Object> params) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public T load(Class<T> clz, int id) {
+		return sqlSessionTemplate.selectOne(clz.getName()+DOT+LOAD, id);
+	}
+
+	@Override
+	public T load(Class<T> clz, long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public T loadBySqlId(String sqlId, Map<String, Object> params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public T loadBySqlId(String sqlId, Object obj) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<T> list(Class<T> clz, Map<String, Object> params) {
+		return sqlSessionTemplate.selectList(clz.getName()+DOT+LIST,params);
+	}
+
+	@Override
+	public int findCount(Class<T> clz, Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+}

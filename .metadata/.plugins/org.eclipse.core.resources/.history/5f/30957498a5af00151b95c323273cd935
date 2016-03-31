@@ -1,0 +1,20 @@
+package com.heheren.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import com.heheren.service.impl.PostService;
+
+@Controller
+public class PostController {
+	@Autowired
+	private PostService postService;
+	
+/*	
+	public String queryPost(ModelMap modelMap,HttpSession session,HttpServletResponse response){
+		
+		
+		return null;
+	}*/
+	
+}

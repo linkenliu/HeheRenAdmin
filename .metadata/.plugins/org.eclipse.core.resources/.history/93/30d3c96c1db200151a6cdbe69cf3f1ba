@@ -1,0 +1,7 @@
+package com.heheren.dao.impl;
+
+import com.heheren.dao.BaseDao;
+
+public class BaseDaoImpl implements BaseDao{
+
+}

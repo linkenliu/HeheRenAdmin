@@ -1,0 +1,15 @@
+package com.heheren.model;
+
+import java.sql.Date;
+
+public class Post {
+	private int id;
+	
+	private String name;
+	
+	private String picture;
+	
+	private String details;
+	
+	private Date createDate;
+}

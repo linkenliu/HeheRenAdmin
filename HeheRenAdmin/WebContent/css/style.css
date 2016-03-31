@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+
+.item-uploader{
+	background-color: gainsboro;
+	margin-right:5px;
+	margin-top:5px;
+	margin-bottom:5px;
+	padding: 0;
+	/* 将图片设置成横排 */
+	display: inline-block;    
+}
+.delimg{
+	background-color: grey;
+	/* 将内联元素转换成块级元素 */
+	display: block;
+	color: black;
+	text-align: center;
+	/* line-height: 20px; */
+}
+

@@ -1,0 +1,10 @@
+package com.heheren.config;
+
+public class QiuNiu {
+	/**
+	 * ÆßÅ£ÃüÃû¿Õ¼ä
+	 */
+	public static final String BUCKET = "heheren";
+	public static final String ACCESS_KEY = "DCqIYmhHuIgLdfUWpcn4Lzo-1QZ1juBALUTFVTkb";
+	public static final String SECRET_KEY = "Bp7Io4kyOOmN9HEiFJ8GNhKfcUk9fV6IDywtEuC0";
+}

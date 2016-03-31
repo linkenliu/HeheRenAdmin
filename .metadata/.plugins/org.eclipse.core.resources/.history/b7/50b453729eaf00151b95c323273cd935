@@ -1,0 +1,19 @@
+package com.heheren.dao.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import com.heheren.dao.PostDao;
+import com.heheren.model.Post;
+
+public class PostDaoImpl implements PostDao{
+	//得到ibatis里的操作对象SqlMapClient
+	@Autowired
+	private SqlMapClient sqlMapClient;
+	@Override
+	public List<Post> queryUser(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

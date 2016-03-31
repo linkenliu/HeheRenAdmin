@@ -1,0 +1,15 @@
+package com.heheren.test;
+
+public class QiniuTest {
+	Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
+
+	public static void main(String[] args) {
+
+	}
+	
+	public <Auth> String getToken(){
+		Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
+
+		return null;
+	}
+}

@@ -1,0 +1,96 @@
+package com.heheren.util;
+
+import java.io.IOException;
+import java.lang.reflect.Field;
+
+import org.apache.log4j.Logger;
+
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+
+/**
+ * 解决jackson输出null为空字符串、单引号、字段和数字加引号问题.
+ * 
+ * @author wangchenbo
+ *
+ */
+public class ObjectMappingCustomer extends ObjectMapper {
+
+	protected Logger	logger	= Logger.getLogger(this.getClass());
+
+	public ObjectMappingCustomer() {
+		super();
+		// 允许单引号
+		this.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
+		// 字段和值都加引号
+		this.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
+		// 转义字符-异常情况
+		this.configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
+		// 数字也加引号
+		this.configure(JsonGenerator.Feature.WRITE_NUMBERS_AS_STRINGS, true);
+		this.configure(JsonGenerator.Feature.QUOTE_NON_NUMERIC_NUMBERS, true);
+
+		// 空值处理为空串
+		this.getSerializerProvider().setNullValueSerializer(new JsonSerializer<Object>() {
+
+			@Override
+			public void serialize(Object value, JsonGenerator jg, SerializerProvider sp) throws IOException, JsonProcessingException {
+
+				try {
+					String currentName = jg.getOutputContext().getCurrentName();
+
+					Field[] fields = jg.getCurrentValue().getClass().getDeclaredFields();
+
+					boolean isFound = false, isAssigned = false;
+
+					for (Field field : fields) {
+						if (field.getName().equalsIgnoreCase(currentName)) {
+							if (field.getType() == Integer.class) {
+								jg.writeString("0");
+								isAssigned = true;
+							} else {
+								jg.writeString("");
+								isAssigned = true;
+							}
+							isFound = true;
+							break;
+						}
+					}
+
+					if (!isFound) {
+						Class<?> superClass = jg.getCurrentValue().getClass().getSuperclass();
+						if (superClass != Object.class) {
+
+							Field[] parentFields = superClass.getDeclaredFields();
+							for (Field f : parentFields) {
+								if (f.getName().equalsIgnoreCase(currentName)) {
+									if (f.getType() == Integer.class) {
+										jg.writeString("0");
+										isAssigned = true;
+									} else {
+										jg.writeString("");
+										isAssigned = true;
+									}
+									break;
+								}
+							}
+						}
+					}
+					if (!isAssigned) {
+						jg.writeString("");
+					}
+				}
+				catch (Exception e) {
+					logger.error("处理null值时出错:", e);
+					jg.writeString("");
+				}
+
+			}
+		});
+
+	}
+}

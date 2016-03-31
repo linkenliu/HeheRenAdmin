@@ -1,0 +1,5 @@
+package com.heheren.dao;
+
+public interface PostDao {
+	public List<Post> queryUser(Map<String, Object> map) throws Exception;
+}

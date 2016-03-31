@@ -1,0 +1,13 @@
+package com.heheren.dao;
+
+import java.awt.List;
+import java.util.Map;
+
+import com.heheren.utils.QiNiu;
+
+public interface BaseDao<T> {
+	public String getQiNiuToken(QiNiu qiniu);
+	
+	
+	public List<T> list(Class<T> clz,Map<String, Object> params); 
+}

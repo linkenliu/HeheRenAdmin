@@ -1,0 +1,10 @@
+package com.heheren.dao;
+
+import java.util.List;
+
+import java.util.Map;
+
+import com.heheren.model.Dictionarie;
+
+public class DictionarieDao {
+}

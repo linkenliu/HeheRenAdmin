@@ -1,0 +1,15 @@
+package com.heheren.test;
+
+import com.qiniu.api.auth.digest.Mac;
+import com.qiniu.api.rs.PutPolicy;
+
+public class QiniuTest {
+
+	public static void main(String[] args) {
+		Mac mac = new Mac(Config.ACCESS_KEY, "Bp7Io4kyOOmN9HEiFJ8GNhKfcUk9fV6IDywtEuC0");
+		PutPolicy putPolicy = new PutPolicy("heheren");
+		String uptoken = putPolicy.token(mac);
+		System.out.println(uptoken);
+	}
+	
+}

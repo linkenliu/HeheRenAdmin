@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<sqlMapConfig>
+	<!-- 开启命名空间 -->
+ 	<settings useStatementNamespaces="true" />
+  <!-- 定义映射文件 -->
+  
+  	<typeAlias alias="Post" type="com.heheren.model.Post"/>
+  	<sqlMap resource="com/heheren/mapper/post.xml"/>
+  	
+</sqlMapConfig>

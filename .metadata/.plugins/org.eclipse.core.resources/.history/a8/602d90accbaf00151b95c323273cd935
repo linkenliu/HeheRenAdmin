@@ -1,0 +1,33 @@
+package com.heheren.controller;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.heheren.model.Post;
+import com.heheren.service.impl.PostService;
+
+@Controller
+public class PostController {
+	@Autowired
+	private PostService postService;
+	
+	@RequestMapping("queryPost")
+	public String queryPost(ModelMap modelMap,HttpSession session,HttpServletResponse response,HttpServletRequest request) throws Exception{
+		System.out.println("序秘〃。。。。。。。。。。。。。。。。。。。。。。。。。");
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<Post> postList =  postService.queryUser(map);
+		System.out.print("*********************************"+postList.get(0).getId());
+		return null;
+	}
+	
+}

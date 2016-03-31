@@ -1,0 +1,13 @@
+package com.heheren.test;
+
+public class QiniuTest {
+
+	public static void main(String[] args) {
+
+	}
+	
+	public String getToken(){
+		
+		return null;
+	}
+}

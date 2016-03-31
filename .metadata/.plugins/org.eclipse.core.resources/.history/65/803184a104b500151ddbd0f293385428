@@ -1,0 +1,13 @@
+package com.heheren.service.impl;
+
+
+
+import org.springframework.stereotype.Service;
+
+import com.heheren.model.Dictionarie;
+import com.heheren.model.Post;
+@Service
+public class DictionarieServiceImpl extends BaseServiceImpl<Dictionarie> implements com.heheren.service.DictionarieService{
+	
+
+}

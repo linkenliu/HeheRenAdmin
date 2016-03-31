@@ -1,0 +1,7 @@
+package com.heheren.utils;
+
+public class SearchEntity {
+	private String postChoose;
+	
+	private String keyWord
+}

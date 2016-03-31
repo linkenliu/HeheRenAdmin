@@ -1,0 +1,2 @@
+2015-12-31 17:31:08,756 [Worker-198] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: cn.handouer:CMS:2.0 @ E:\work\CMS\pom.xml.
+2015-12-31 17:31:33,259 [Worker-187] WARN  i.t.a.c.LockingFileProcessor - Failed to lock file C:\Users\Administrator\.m2\repository\.locks\org.springframework~spring-aop~3.1.0.RELEASE: java.io.FileNotFoundException: C:\Users\Administrator\.m2\repository\.locks\org.springframework~spring-aop~3.1.0.RELEASE.aetherlock (¾Ü¾ø·ÃÎÊ¡£)

@@ -1,0 +1,8 @@
+package com.heheren.utils;
+
+public class Snippet {
+	public static void main(String[] args) {
+		com.heheren.utils
+	}
+}
+

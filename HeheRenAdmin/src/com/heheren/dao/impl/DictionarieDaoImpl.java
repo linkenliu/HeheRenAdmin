@@ -1,0 +1,21 @@
+package com.heheren.dao.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.heheren.dao.DictionarieDao;
+import com.heheren.model.Dictionarie;
+@Repository
+public class DictionarieDaoImpl extends BaseDaoImpl<Dictionarie> implements DictionarieDao{
+
+	private static final String DOT = ".";
+	
+	private static final String FIND = "find";
+	
+	@Override
+	public List<Dictionarie> find(Class<Dictionarie> clz, int id) {
+		return sqlSessionTemplate.selectList(clz.getName()+DOT+FIND, id);
+	}
+	
+}

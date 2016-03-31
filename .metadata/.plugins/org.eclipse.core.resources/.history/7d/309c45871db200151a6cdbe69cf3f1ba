@@ -1,0 +1,19 @@
+package com.heheren.dao.impl;
+
+import com.heheren.config.QiNiu;
+import com.heheren.dao.BaseDao;
+import com.qiniu.util.Auth;
+
+public class BaseDaoImpl implements BaseDao{
+	
+	/**
+	 * ªÒ»°∆ﬂ≈£token
+	 */
+	@Override
+	public String getQiNiuToken(QiNiu qiniu) {
+		Auth auth = Auth.create("DCqIYmhHuIgLdfUWpcn4Lzo-1QZ1juBALUTFVTkb", "Bp7Io4kyOOmN9HEiFJ8GNhKfcUk9fV6IDywtEuC0");
+		String token = auth.uploadToken("heheren");
+		return token;
+	}
+
+}

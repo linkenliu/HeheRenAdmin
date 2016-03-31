@@ -1,0 +1,5 @@
+package com.heheren.dao;
+
+public class PostDao {
+	
+}

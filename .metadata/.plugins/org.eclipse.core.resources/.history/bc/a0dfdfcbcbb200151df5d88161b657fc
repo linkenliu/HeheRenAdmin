@@ -1,0 +1,100 @@
+package com.heheren.controller;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.heheren.model.Post;
+import com.heheren.service.PostService;
+import com.heheren.utils.QiNiu;
+
+/**
+ * 帖子列表
+ * @author linken
+ *
+ */
+@Controller
+public class PostController {
+	@Autowired
+	private PostService postService;
+	
+	private QiNiu qiniu = new QiNiu();
+	/**
+	 * 获取帖子列表
+	 * @param modelMap
+	 * @param session
+	 * @param response
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("queryPostList")
+	public String queryPost(ModelMap modelMap,HttpSession session,HttpServletResponse response,HttpServletRequest request) throws Exception{
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<Post> postList =  postService.list(Post.class, map);
+		modelMap.addAttribute("postList", postList);
+		return "/page/postList.jsp";
+	}
+	/**
+	 * 新增帖子UI
+	 * @return
+	 */
+	@RequestMapping("addPostUI")
+	public String addPostUI(ModelMap modelMap){
+		String token = postService.getQiNiuToken(qiniu);
+		modelMap.addAttribute("qiuniuToken", token);
+		return "/page/postAdd.jsp";
+	}
+	/**
+	 * 新增帖子
+	 * @param p      add时需要的参数
+	 * @param response  
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("addPost")
+	public String addPost(Post p,HttpServletResponse response,HttpServletRequest request){
+		Date nowTime = new Date(System.currentTimeMillis());
+		p.setCreateDate(nowTime);
+		p.setUpdateDate(nowTime);
+		postService.add(p);
+		return "redirect:/queryPostList";
+	}
+	/**
+	 * 编辑帖子UI
+	 * @param p
+	 * @param request
+	 * @param modelMap
+	 * @return
+	 */
+	@RequestMapping("updatePostUI")
+	public String updatePostUI(int id,HttpServletRequest request,ModelMap modelMap){
+		String token = postService.getQiNiuToken(qiniu);
+		Post post = postService.load(Post.class, id);
+		modelMap.addAttribute("qiuniuToken", token);
+		modelMap.addAttribute("post", post);
+		return "/page/postUpdate.jsp";
+	}
+	@RequestMapping("updatePostUI")
+	public String updatePost(int id,HttpServletRequest request,ModelMap modelMap){
+		String token = postService.getQiNiuToken(qiniu);
+		Post post = postService.load(Post.class, id);
+		modelMap.addAttribute("qiuniuToken", token);
+		modelMap.addAttribute("post", post);
+		return "/page/postUpdate.jsp";
+	}
+	
+}
+
+
+

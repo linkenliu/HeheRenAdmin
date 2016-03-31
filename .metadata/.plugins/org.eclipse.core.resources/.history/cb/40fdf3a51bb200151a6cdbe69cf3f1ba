@@ -1,0 +1,23 @@
+package com.heheren.test;
+
+import com.qiniu.api.auth.digest.Mac;
+import com.qiniu.api.config.Config;
+import com.qiniu.api.rs.PutPolicy;
+import com.qiniu.util.Auth;
+
+public class QiniuTest {
+
+	public static void main(String[] args) {
+		Config.ACCESS_KEY = "DCqIYmhHuIgLdfUWpcn4Lzo-1QZ1juBALUTFVTkb";
+	    Config.SECRET_KEY = "Bp7Io4kyOOmN9HEiFJ8GNhKfcUk9fV6IDywtEuC0";
+	/*	Mac mac = new Mac(Config.ACCESS_KEY,Config.SECRET_KEY);
+		PutPolicy putPolicy = new PutPolicy("heheren");
+		String uptoken = putPolicy.token(mac);
+		System.out.println(uptoken);*/
+	    Auth auth = Auth.create("DCqIYmhHuIgLdfUWpcn4Lzo-1QZ1juBALUTFVTkb", "Bp7Io4kyOOmN9HEiFJ8GNhKfcUk9fV6IDywtEuC0");
+	    auth.uploadToken("heheren");
+	    
+
+	}
+	
+}

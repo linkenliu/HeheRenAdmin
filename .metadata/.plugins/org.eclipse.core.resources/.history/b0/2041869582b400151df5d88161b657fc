@@ -1,0 +1,22 @@
+package com.heheren.dao.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Repository;
+
+import com.heheren.dao.DictionarieDao;
+import com.heheren.dao.PostDao;
+import com.heheren.model.Dictionarie;
+import com.heheren.model.Post;
+@Repository
+public class DictionarieDaoImpl extends BaseDaoImpl<Dictionarie> implements DictionarieDao{
+
+	@Override
+	public List<Dictionarie> list(Class<Post> clz, Map<String, Object> params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

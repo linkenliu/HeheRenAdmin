@@ -1,0 +1,15 @@
+package com.heheren.service.impl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.heheren.dao.DictionarieDao;
+import com.heheren.dao.PostDao;
+import com.heheren.dao.impl.BaseDaoImpl;
+import com.heheren.model.Dictionarie;
+@Service
+public class DictionarieServiceImpl  extends BaseDaoImpl<Dictionarie> implements DictionarieDao{
+
+	@Autowired
+	private DictionarieDao dictionarieDao;
+	
+}

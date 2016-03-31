@@ -1,0 +1,9 @@
+package com.heheren.test;
+
+public class QiniuTest {
+
+	public static void main(String[] args) {
+		Mac mac = new Mac(Config.ACCESS_KEY, Config.SECRET_KEY);
+	}
+	
+}

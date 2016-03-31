@@ -1,0 +1,10 @@
+package com.heheren.dao.impl;
+
+import org.springframework.stereotype.Repository;
+
+import com.heheren.dao.DictionarieDao;
+import com.heheren.model.Dictionarie;
+@Repository
+public class DictionarieDaoImpl  extends BaseDaoImpl<Dictionarie> implements DictionarieDao{
+	
+}

@@ -1,0 +1,18 @@
+package com.heheren.service.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.heheren.dao.PostDao;
+import com.heheren.dao.impl.BaseDaoImpl;
+import com.heheren.model.Post;
+@Service
+public class PostServiceImpl extends BaseDaoImpl implements com.heheren.service.PostService{
+	
+	@Autowired
+	private PostDao postDao;
+	
+}

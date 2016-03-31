@@ -1,0 +1,14 @@
+package com.heheren.test;
+
+import com.qiniu.util.Auth;
+
+public class QiniuTest {
+
+	public static void main(String[] args) {
+	    Auth auth = Auth.create("DCqIYmhHuIgLdfUWpcn4Lzo-1QZ1juBALUTFVTkb", "22");
+	    String token = auth.uploadToken("heheren");
+	    System.out.println(token);
+
+	}
+	
+}

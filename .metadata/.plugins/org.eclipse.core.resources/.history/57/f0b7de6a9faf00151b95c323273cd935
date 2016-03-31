@@ -1,0 +1,21 @@
+package com.heheren.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.heheren.dao.PostDao;
+import com.heheren.model.Post;
+@Service
+public class PostServiceImpl implements com.heheren.service.impl.PostServiceImpl{
+	
+	@Autowired
+	private PostDao postDao;
+	
+	@Override
+	public List<Post> queryUser(Map<String, Object> map) throws Exception {
+		return postDao.queryUser(map);
+	}
+}

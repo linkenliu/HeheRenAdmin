@@ -1,0 +1,47 @@
+(function($) {
+
+	window.changeVerificationCode = function(path) {
+		var now = new Date();
+		var src = path + "editor/editor_verificationCode.action?timestamp="
+				+ now.getTime();
+		$("#verificationImage").attr("src", src);
+	};
+
+	window.fillLoginData = function() {
+		var cookieKey = "alofti.user.session";
+		var userSession = $.cookie(cookieKey);
+
+		if (userSession != null) {
+
+			var sessionArr = userSession.split("@");
+
+			if (sessionArr != null && sessionArr.length === 4) {
+				if (sessionArr[0] !== "") {
+					if (sessionArr[0].charAt(0) === "\"") {
+						sessionArr[0] = sessionArr[0].substr(1);
+					}
+					$("#phone").val(sessionArr[0]);
+				}
+				if (sessionArr[1] !== "") {
+					$("#password").val(sessionArr[1]);
+				}
+				if (sessionArr[2] !== "") {
+					$("#rememberName").attr("checked", "checked");
+				}
+				if (sessionArr[3] !== "") {
+					$("#rememberPassword").attr("checked", "checked");
+				}
+			}
+		}
+
+	};
+	
+	$("body").on("click.category", ".category-list a", function() {
+		$(this).closest("ul").find("li").removeClass();
+		$(this).closest("li").addClass("active");
+		var url = $(this).attr("data-url");
+		var win = window.parent.window.frames['rightFra'];// right框架
+		win.location = url;
+	});
+	
+})(jQuery);

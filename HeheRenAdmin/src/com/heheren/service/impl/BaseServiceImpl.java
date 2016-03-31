@@ -1,0 +1,77 @@
+package com.heheren.service.impl;
+
+import java.util.List;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import com.heheren.dao.BaseDao;
+import com.heheren.service.BaseService;
+import com.heheren.utils.QiNiu;
+
+@Service
+public class BaseServiceImpl<T> implements BaseService<T>{
+	
+	@Autowired
+	@Qualifier("baseDaoImpl")
+	private BaseDao<T> baseDao;
+	
+	@Override
+	public String getQiNiuToken(QiNiu qiniu) {
+		return baseDao.getQiNiuToken(qiniu);
+	}
+
+	@Override
+	public void add(T obj) {
+		baseDao.add(obj);
+	}
+
+	@Override
+	public void update(T obj) {
+		baseDao.update(obj);
+	}
+
+	@Override
+	public void delete(Class<T> clz, Map<String, Object> params) {
+		baseDao.delete(clz, params);
+	}
+
+	@Override
+	public T load(Class<T> clz, int id) {
+		return baseDao.load(clz, id);
+	}
+
+	@Override
+	public T load(Class<T> clz, long id) {
+		return baseDao.load(clz, id);
+	}
+
+	@Override
+	public T loadBySqlId(String sqlId, Map<String, Object> params) {
+		return baseDao.loadBySqlId(sqlId, params);
+	}
+
+	@Override
+	public T loadBySqlId(String sqlId, Object obj) {
+		return baseDao.loadBySqlId(sqlId, obj);
+	}
+
+	@Override
+	public List<T> list(Class<T> clz, Map<String, Object> params) {
+		return baseDao.list(clz, params);
+	}
+
+	@Override
+	public int findCount(Class<T> clz, Map<String, Object> map) {
+		return baseDao.findCount(clz, map);
+	}
+
+	@Override
+	public void deleteQiniuImage(QiNiu qiniu) {
+		baseDao.deleteQiniuImage(qiniu);
+	}
+	
+}

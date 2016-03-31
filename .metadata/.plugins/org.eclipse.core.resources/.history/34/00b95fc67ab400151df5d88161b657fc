@@ -1,0 +1,11 @@
+package com.heheren.service.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import com.heheren.utils.QiNiu;
+
+
+public class BaseServiceImpl<T> {
+	
+}

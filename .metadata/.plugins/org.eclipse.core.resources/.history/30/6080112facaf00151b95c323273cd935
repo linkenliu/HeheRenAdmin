@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<properties>
+		<property name="dialect" value="mysql"/>
+	</properties>
+	
+	<settings>
+		<setting name="lazyLoadingEnabled" value="false"/>
+		<setting name="aggressiveLazyLoading" value="false"/>
+	</settings>  
+	
+	<typeAliases>
+		<typeAlias alias="User" type="cn.handouer.cms.entity.User"/>
+	</typeAliases>
+	
+	<plugins>
+		<plugin	interceptor="cn.handouer.util.mybatis.dialect.PaginationInterceptor"/>
+	</plugins>
+	
+	<mappers>
+		<mapper resource="cn/handouer/cms/entity/mapper/UserMapper.xml"/>	
+		<mapper resource="cn/handouer/cms/entity/mapper/UserInfoMapper.xml"/>	
+		<mapper resource="cn/handouer/cms/entity/mapper/CategoryMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/CategoryRelationMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/PostMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/PostAdminMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/TagMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/CommentMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/PictureMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/PictureZuJiMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/TagRelationMapper.xml"/>	
+		<mapper resource="cn/handouer/cms/entity/mapper/CaptchaMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/LikeRelationMapper.xml"/>	
+		<mapper resource="cn/handouer/cms/entity/mapper/ColumnTypeMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/PostColumnRelationMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/EpgMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/StudioMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/IntegralRelationMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/RewardMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/ThemeMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/ThemePostMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/KoreaPostMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/StarBridgeInfoMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/FamousStarRelateMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/SnsMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/SnsColumnRelationMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/SnsPictureMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/SnsCrawlCaptureMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/FollowMapper.xml" />
+		<mapper resource="cn/handouer/cms/entity/mapper/MessageActivityMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/MessageColumnRelationMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/UserPostMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/EditorMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/CapacityMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/PrestigeRelationMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/PrestigeRelationForCategory.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/GiftMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/UserGiftMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/AddressMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/InvitationCodeMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/IntegralDoubleMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/CommentLikeRelationMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/SecretaryMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/SecretaryQuestionMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/SecretaryAnswerMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/QuestionInfoMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/DialogueMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/TravelMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/CategoryPeriodMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/PostPeriodRelationMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/CrawlerRecordMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/NewsMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/NewsCateRelationMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/TranslateUser.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/CrawlerRecordSpecificMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/activityPdsMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/RolesMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/RightsMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/UserRolesMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/RoleRightsMapper.xml"/>
+		<mapper resource="cn/handouer/cms/entity/mapper/UserNeedCategoryMapper.xml"/>
+	</mappers>
+</configuration> 

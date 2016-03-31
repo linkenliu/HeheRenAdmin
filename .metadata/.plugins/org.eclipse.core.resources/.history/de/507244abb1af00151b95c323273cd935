@@ -1,0 +1,25 @@
+package com.heheren.dao.impl;
+
+import java.util.List;
+
+import java.util.Map;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.heheren.dao.PostDao;
+import com.heheren.model.Post;
+import com.ibatis.sqlmap.client.SqlMapClient;
+@Repository
+public class PostDaoImpl implements PostDao{
+	//得到ibatis里的操作对象SqlMapClient
+	@Autowired
+	public SqlSessionTemplate sqlSessionTemplate;
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Post> queryUser(Map<String, Object> map) throws Exception {
+		return sqlSessionTemplate.selectList("aa.queryPost",map);
+	}
+	
+}
